@@ -293,9 +293,28 @@ def load_ort_pipeline(
     return model, model_id, tokenizer, feature_extractor
 
 
+def load_executorch_pipeline(
+    model,
+    targeted_task,
+    load_tokenizer,
+    tokenizer,
+    feature_extractor,
+    load_feature_extractor,
+    SUPPORTED_TASKS,
+    subfolder: str = "",
+    token: Optional[Union[bool, str]] = None,
+    revision: str = "main",
+    model_kwargs: Optional[Dict[str, Any]] = None,
+    config: AutoConfig = None,
+    **kwargs,
+):
+    raise NotImplementedError("Executorch pipeline is not implemented yet.")
+
+
 MAPPING_LOADING_FUNC = {
     "ort": load_ort_pipeline,
     "bettertransformer": load_bettertransformer,
+    "executorch": load_executorch_pipeline,
 }
 
 
